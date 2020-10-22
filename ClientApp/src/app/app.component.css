@@ -1,0 +1,13 @@
+.routerOutlet {
+  width: 92%;
+  padding-left: 9%;
+  /* font-size: 1.1rem; */
+}
+
+body {
+  background-color: #555;
+}
+
+h4 {
+  color: #2F528A;
+}

@@ -1,0 +1,183 @@
+<button class="btn editButton float-right" data-toggle="modal" data-target="#editorModal" (click)="NewOrder()">
+    Order New Merchant
+</button>
+<br>
+<h5>
+    Open Orders
+</h5>
+<br>
+<div>
+
+    <input type="checkbox" aria-label="Checkbox for following text input" [(ngModel)]="showhideold">
+    <span class="olderOrder"> Include Old Orders</span>
+
+</div>
+<br>
+<table class="table table-striped table-hover  table-bordered">
+    <thead class="tableHeader">
+        <tr>
+            <th scope="col" i18n>Merchant</th>
+            <th scope="col" i18n>Order Status</th>
+            <th scope="col" i18n>User</th>
+            <th scope="col">Modified</th>
+        </tr>
+    </thead>
+    <tbody *ngIf="fauxData.length > 0">
+        <tr *ngFor="let Order of fauxData">
+            <td>{{Order.Merchant}}</td>
+            <td>{{Order.Order}}</td>
+            <td>{{Order.User}}</td>
+            <td>{{Order.Modified}}</td>
+        </tr>
+    </tbody>
+</table>
+<div *ngIf="fauxData.length === 0 " class="table-responsive-sm ">
+    <table class="table">
+        <thead>
+            <tr>
+                <h3 class="text-center"> No Orders</h3>
+            </tr>
+        </thead>
+    </table>
+    <hr>
+</div>
+
+<div *ngIf="showhideold">
+    <h5>
+        Vanhat Tilaukset
+    </h5>
+    <br>
+    <div class="form-group">
+        <span class="olderOrder">
+            <h5> Search: </h5>
+        </span>
+        <input type="text">
+    </div>
+    <table class="table table-striped table-hover  table-bordered">
+        <thead class="tableHeader">
+            <tr>
+                <th scope="col" i18n>Merchant</th>
+                <th scope="col" i18n>Order Status</th>
+                <th scope="col" i18n>User</th>
+                <th scope="col">Modified</th>
+            </tr>
+        </thead>
+        <tbody *ngIf="fauxData.length > 0">
+            <tr *ngFor="let Order of fauxData">
+                <td>{{Order.Merchant}}</td>
+                <td>{{Order.Order}}</td>
+                <td>{{Order.User}}</td>
+                <td>{{Order.Modified}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+
+</div>
+
+<div class="modal fade" id="editorModal" tabindex="-1" role="dialog" aria-labelledby="editorModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editorModalLabel">New Order</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="orderForm" *ngIf="this.orderForm">
+                    <div class="row">
+                        <div class="col-7">
+                            <p>Merchant iInformation</p>
+                            <div class="row">
+                                <div class="col-8">
+                                    <div class="form-group">
+                                        <label for="name">Company Name:</label>
+                                        <input id="name" type="text" class="form-control"
+                                            formControlName="companyName" />
+                                    </div>
+                                </div>
+                                <div class="col-8">
+                                    <div class="form-group">
+                                        <label for="busness">Business ID:</label>
+                                        <input id="busness" type="text" class="form-control"
+                                            formControlName="busnessID" />
+                                    </div>
+                                </div>
+                                <div class="col-8">
+                                    <div class="form-group">
+                                        <label for="phone">Phone Number:</label>
+                                        <input id="phone" type="text" class="form-control"
+                                            formControlName="phoneNumber" /> +358
+                                    </div>
+                                </div>
+                                <div class="col-8">
+                                    <div class="form-group">
+                                        <label for="address">Street Address:</label>
+                                        <input id="address" type="text" class="form-control"
+                                            formControlName="streetAddress" />
+                                    </div>
+                                </div>
+                                <div class="col-8">
+                                    <div class="form-group">
+                                        <label for="post">PostCode:</label>
+                                        <input id="post" type="text" class="form-control" formControlName="postCode" />
+                                    </div>
+                                </div>
+                                <div class="col-8">
+                                    <div class="form-group">
+                                        <label for="country">Country:</label>
+                                        <input id="country" type="text" class="form-control"
+                                            formControlName="country" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-5">
+                            <p>Merchant Billing Address</p>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>
+                                            <input type="radio" value="Dont" formControlName="option">
+                                            <span i18n>Don't use contrac printed from poplapay</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>
+                                            <input type="radio" value="evoice" formControlName="option">
+                                            <span i18n>E-invoice</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>
+                                            <input type="radio" value="Don't use " formControlName="option">
+                                            <span i18n>Invoice</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn-secondary" data-dismiss="modal">Close</button>
+                        <button class="editButton" type="submit">Save changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,114 @@
+<div class="form-container-box merchantInfo">
+    <div class="row">
+        <div class="col-12">
+            <h4 class="infoHeader">Merchant Information</h4>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-6">
+
+            <div class="form-group">
+                <h4 class="infoHeader">Company Name</h4>
+                <p>Semel OY</p>
+            </div>
+
+            <div class="form-group">
+                <h4 class="infoHeader">Business ID</h4>
+                <p>01138212</p>
+            </div>
+            <div class="form-group">
+                <h4 class="infoHeader">Phone Number</h4>
+                <p>+358443001166</p>
+            </div>
+
+        </div>
+        <div class="col-6">
+            <div class="form-group">
+                <h4 class="infoHeader">Street Address</h4>
+                <p>Valimotie 21</p>
+            </div>
+
+            <div class="form-group">
+                <h4 class="infoHeader">Postal Code</h4>
+                <p>01740</p>
+            </div>
+            <div class="form-group">
+                <h4 class="infoHeader">City</h4>
+                <p>Helsinki</p>
+            </div>
+            <div class="form-group">
+                <h4 class="infoHeader">Country</h4>
+                <p>Finland</p>
+            </div>
+
+        </div>
+    </div>
+</div>
+<br>
+<br>
+<div class="bs-example card">
+    <div class="panel-group " [attr.id]="'accordion_' + i" *ngFor="let message of accordionData; let i = index;">
+        <div class="panel panel-default ">
+            <div class="panel-heading card-header cardBody">
+
+                <a data-toggle="collapse" [attr.data-parent]="'#accordion_' + i" [attr.href]="'#collapseOne_' + i">
+                    <h4 class="panel-title">
+                        {{ message.name }} {{ message.lastName }}
+                    </h4>
+                </a>
+            </div>
+            <div [attr.id]="'collapseOne_' + i" class="panel-collapse collapse in">
+                <div class="panel-body card-body">
+                    <div class="form-container-box merchantInfo">
+                        <div class="row">
+                            <div class="col-12">
+                                <h4 class="infoHeader">Contact Information</h4>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-6">
+
+                                <div class="form-group">
+                                    <h4 class="infoHeader">Company Name</h4>
+                                    <p>Semel OY</p>
+                                </div>
+
+                                <div class="form-group">
+                                    <h4 class="infoHeader">Business ID</h4>
+                                    <p>01138212</p>
+                                </div>
+                                <div class="form-group">
+                                    <h4 class="infoHeader">Phone Number</h4>
+                                    <p>+358443001166</p>
+                                </div>
+
+                            </div>
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <h4 class="infoHeader">Street Address</h4>
+                                    <p>Valimotie 21</p>
+                                </div>
+
+                                <div class="form-group">
+                                    <h4 class="infoHeader">Postal Code</h4>
+                                    <p>01740</p>
+                                </div>
+                                <div class="form-group">
+                                    <h4 class="infoHeader">City</h4>
+                                    <p>Helsinki</p>
+                                </div>
+                                <div class="form-group">
+                                    <h4 class="infoHeader">Country</h4>
+                                    <p>Finland</p>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
