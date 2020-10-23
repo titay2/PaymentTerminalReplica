@@ -1,1 +1,87 @@
-<p>batch works!</p>
+<div>
+    <h6>
+        <a routerLink="/Settlement">Settlment ></a> Settlement Batch {{batchNumber}}
+    </h6>
+</div>
+
+<div class="batchInfo">
+    <div>
+        <label class="infoLable">Date</label><br>
+        <span class="infoSpan">{{date | date:'yyyy-MM-dd'}}</span>
+    </div>
+    <div>
+        <label class="infoLable">Sales Location</label><br>
+        <span class="infoSpan">{{batch.salesLocation}}</span>
+    </div>
+    <div>
+        <label class="infoLable">Sales</label><br>
+        <span class="infoSpan">{{batch.sales}}</span>
+    </div>
+    <div>
+        <label class="infoLable">Transaction</label><br>
+        <span class="infoSpan">{{batch.transactions.length}}</span>
+    </div>
+    <div>
+        <label class="infoLable">Refund</label><br>
+        <span class="infoSpan">{{batch.refund}}</span>
+    </div>
+    <div>
+        <label class="infoLable">Transaction</label><br>
+        <span class="infoSpan">0.00</span>
+    </div>
+</div>
+<div class="batchTable">
+    <div class="statusTable col-3">
+        <h5>
+            Batch Status
+        </h5>
+
+        <table class="table table-sm table-strip table-hover shadow p-3 mb-5 bg-white rounded">
+            <thead class="tableHeader">
+                <tr>
+                    <th>Time</th>
+                    <th>New Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let status of batch.batchStatus">
+                    <td>{{status.time | date: 'yyyy-m-d h:mm'}}</td>
+                    <td>{{status.newStatus}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div>
+        <h5 class="transactioTable">
+            Batch Transaction
+        </h5>
+
+        <table class="table table-strip table-hover shadow p-3 mb-5 bg-white rounded">
+            <thead class="tableHeader">
+                <tr>
+                    <th>Time</th>
+                    <th>Terminal</th>
+                    <th>Card Number</th>
+                    <th>Type</th>
+                    <th>State</th>
+                    <th>Reference</th>
+                    <th>Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let transaction of batch.transactions">
+                    <td>{{transaction.time |  date: 'yyyy-m-d h:mm'}}</td>
+                    <td>{{transaction.terminal}}</td>
+                    <td>{{transaction.cardnumber}}</td>
+                    <td>{{transaction.type}}</td>
+                    <td>{{transaction.status}}</td>
+                    <td>{{transaction.reference}}</td>
+                    <td>{{transaction.amount}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+</div>

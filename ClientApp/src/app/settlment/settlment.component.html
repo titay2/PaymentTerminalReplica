@@ -1,10 +1,70 @@
 <div>
     <h6><a routerLink="/Settlement">Settlment ></a></h6>
     <br>
+    <div class="filter">
+        <div class="filterInputs">
+            <label for="name">Sales Location
+                <br>
+                <select class="custom-select salesInput form-control" [(ngModel)]="filterLocation">
+                    <option selected> </option>
+                    <option *ngFor="let option of locationData" [value]="option.value">{{option.name}}</option>
+                </select>
+            </label>
+        </div>
+        <div class="filterInputs">
+            <label for="name">Time Range
+                <br>
+                <div class="wrapper">
+                    <input type="datetime-local" class="newInput form-control" style="width:200px;" />
+                    <span class="left" style="height: 33px;">-</span>
+                    <input type="datetime-local" class="newInput form-control" style="width:200px;" />
+                </div>
 
+            </label>
+        </div>
+        <div class="filterInputs">
+            <label for="name">Batch
+                <br>
+                <input type="text" class="newInput form-control" style="width:200px;" [(ngModel)]="filterFeedback">
+            </label></div>
+    </div>
+
+    <table class="table table-striped table-hover shadow p-3 mb-5 bg-white rounded">
+        <thead class="tableHeader">
+            <tr>
+                <th scope="col">time</th>
+                <th scope="col">content</th>
+                <th scope="col">batch</th>
+                <th scope="col">feedback material</th>
+                <th scope="col">sales</th>
+                <th scope="col">refund</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let Settlment of fauxData | filter: filterLocation : 'batch'">
+                <td style="width: 32%;">{{Settlment.time}}</td>
+                <td>{{Settlment.content}}</td>
+                <td> <a [routerLink]="[Settlment.batch]"> {{Settlment.batch}} </a> </td>
+                <td> {{Settlment.feedbackmaterial}}
+                    <li style="list-style:none;">
+                        Total
+                    </li>
+                </td>
+                <td> {{Settlment.sales}}
+                    <li style="list-style:none;">
+                        {{Settlment.sales}}
+                    </li>
+                </td>
+                <td>{{Settlment.refund}}
+                    <li style="list-style:none;">
+                        $0.00
+                    </li>
+                </td>
+        </tbody>
+    </table>
 </div>
 
-<router-outlet></router-outlet>
+<!-- <router-outlet></router-outlet> -->
 <!-- Table data edit button -->
 <!-- <th scope="col"><button class=" btn editButton" (click)="onEdit(Settlment)" data-toggle="modal"
                         data-target="#exampleModal">Edit</button></th>

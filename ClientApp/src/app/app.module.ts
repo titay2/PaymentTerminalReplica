@@ -22,7 +22,6 @@ import { TukiComponent } from './profile/tuki/tuki.component';
 import { FilterPipe } from './filter.pipe';
 import { BatchComponent } from './settlment/batch/batch.component';
 import { HomeComponent } from './home/home.component';
-import { SettlmentGridComponent } from './settlment/settlment-grid/settlment-grid.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +39,6 @@ import { SettlmentGridComponent } from './settlment/settlment-grid/settlment-gri
     FilterPipe,
     BatchComponent,
     HomeComponent,
-    SettlmentGridComponent,
   ],
   imports: [
     BrowserModule,

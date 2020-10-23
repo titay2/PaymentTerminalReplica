@@ -18,9 +18,6 @@ const routes: Routes = [
   {
     path: '', redirectTo: '/Settlement', pathMatch: 'full',
   },
-  // {
-  //   path: '', redirectTo: '/Settlement', pathMatch: 'full',
-  // },
   {
     path: 'Reporting',
     canActivate: [AuthGuard],
@@ -30,11 +27,11 @@ const routes: Routes = [
     path: 'Settlement',
     //canActivate: [AuthGuard],
     component: SettlmentComponent,
-    children: [
-      { path: '', component: SettlmentComponent },
-      { path: 'test', component: BatchComponent }
-
-    ]
+  },
+  {
+    path: 'Settlement/:id',
+    //canActivate: [AuthGuard],
+    component: BatchComponent,
   },
   {
     path: 'Support',

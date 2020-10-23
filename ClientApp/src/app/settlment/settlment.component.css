@@ -1,7 +1,4 @@
-.tableHeader{
-    background-color: #2F528A;
-    color: aliceblue;
-}
+
 .filter{
     font-size: 1rem;
     font-weight: 600;
@@ -76,5 +73,5 @@ textarea.ng-invalid.ng-touched {
 
 a{
     color: rgb(7, 56, 134) !important;
-    padding-left: 5%;
+
 }
