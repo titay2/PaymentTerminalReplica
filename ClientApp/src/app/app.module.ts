@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
@@ -8,9 +7,7 @@ import { MsalModule, MsalInterceptor } from '@azure/msal-angular';
 import { HTTP_INTERCEPTORS } from "@angular/common/http";
 import { SettlmentComponent } from './settlment/settlment.component';
 import { TransactionComponent } from './transaction/transaction.component';
-import { ReportingComponent } from './reporting/reporting.component';
 import { ProfileComponent } from './profile/profile.component';
-import { SupportComponent } from './support/support.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
@@ -18,10 +15,15 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { KauppiaatComponent } from './profile/kauppiaat/kauppiaat.component';
 import { TilauksetComponent } from './profile/tilaukset/tilaukset.component';
 import { LaitteetComponent } from './profile/laitteet/laitteet.component';
-import { TukiComponent } from './profile/tuki/tuki.component';
 import { FilterPipe } from './filter.pipe';
 import { BatchComponent } from './settlment/batch/batch.component';
 import { HomeComponent } from './home/home.component';
+import { LocationPipe } from './filterPipes/location.pipe';
+import { TerminalPipe } from './filterPipes/terminal.pipe';
+import { CardNumberPipe } from './filterPipes/card-number.pipe';
+import { ReferencePipe } from './filterPipes/reference.pipe';
+import { TimeFilterPipe } from './filterPipes/time-filter.pipe';
+import { AmountFilterPipe } from './filterPipes/amount-filter.pipe';
 
 @NgModule({
   declarations: [
@@ -29,16 +31,19 @@ import { HomeComponent } from './home/home.component';
     NavBarComponent,
     SettlmentComponent,
     TransactionComponent,
-    ReportingComponent,
     ProfileComponent,
-    SupportComponent,
     KauppiaatComponent,
     TilauksetComponent,
     LaitteetComponent,
-    TukiComponent,
     FilterPipe,
     BatchComponent,
     HomeComponent,
+    LocationPipe,
+    TerminalPipe,
+    CardNumberPipe,
+    ReferencePipe,
+    TimeFilterPipe,
+    AmountFilterPipe,
   ],
   imports: [
     BrowserModule,

@@ -1,33 +1,29 @@
 
+table li{
+    font-weight: bolder;
+}
+a{
+    color: rgb(7, 56, 134) !important;
+}
 .filter{
     font-size: 1rem;
     font-weight: 600;
-}
-.hide{
-    display: none;
-}
-.filterInputs {
+  }
+  .filterInputs {
     display: inline-block;
     margin: 0 25px 15px 0;
     vertical-align: top;
     position: relative;
-}
-table li{
-    font-weight: bolder;
-}
-.salesInput{
+  }
+  .salesInput{
     border-right: 1px solid #767676;
     border-left: 1px solid #767676;
     border-top: 1px solid #767676;
     border-bottom: 8px solid #2F528A;
     width: 200px;
-}
-/* .fieldSize{
-    width: 200px;
-    height: 45px;
-} */
-
-.newInput {
+    padding-top: inherit;
+  }
+  .newInput {
     width: 15%;
     font-weight: bold;
     background-color: white;
@@ -39,7 +35,7 @@ table li{
   * {
     margin: 0;
   }
-  .left{
+  .spanLeft{
     float: left;
     color: #555;
     text-align: center;
@@ -71,7 +67,3 @@ textarea.ng-invalid.ng-touched {
   border: 1px solid red;
 } */
 
-a{
-    color: rgb(7, 56, 134) !important;
-
-}

@@ -1,1 +1,89 @@
-<p>transaction works!</p>
+<h6>Transaction > </h6>
+
+<div class="filter">
+    <div class="filterInputs">
+        <label for="name">Sales Location
+            <br>
+            <select class="custom-select salesInput form-control" [(ngModel)]="filterLocation">
+                <option selected> </option>
+                <option *ngFor="let option of locationData" [value]="option.value">{{option.name}}</option>
+            </select>
+        </label>
+    </div>
+    <div class="filterInputs">
+        <label for="name">Terminal
+            <br>
+            <select class="newInput form-control" style="width : 160px" [(ngModel)]="filterTerminal">
+                <option selected></option>
+                <option *ngFor="let terminalopt of terminals" [value]="terminalopt.id">{{terminalopt.terminal}}
+                </option>
+            </select>
+        </label>
+    </div>
+    <div class="filterInputs">
+        <label for="name">Time Range
+            <br>
+            <div class="wrapper">
+                <input name="startTime" type="date" class="newInput form-control" style="width:175px;"
+                    [(ngModel)]="startTime" />
+                <span class="left spanLeft" style="height: 33px;">-</span>
+                <input name="endTime" type="date" class="newInput form-control" style="width:175px;"
+                    [(ngModel)]="endTime" />
+            </div>
+
+        </label>
+    </div>
+    <div class="filterInputs">
+        <label for="name">Amount
+            <br>
+            <input type="number" class="newInput form-control" style="width:150px;" [(ngModel)]="startAmt">
+            <span class="left spanLeft" style="height: 33px;">-</span>
+            <input type="number" class="newInput form-control" style="width:150px;" [(ngModel)]="endAmt">
+
+        </label>
+    </div>
+    <div class="filterInputs">
+        <label for="name">Card Number
+            <br>
+            <input type="text" class="newInput form-control" style="width:160px;" [(ngModel)]="filterCard">
+        </label>
+    </div>
+    <div class="filterInputs">
+        <label for="name">Reference
+            <br>
+            <input type="text" class="newInput form-control" style="width:200px;" [(ngModel)]="filterReference">
+        </label>
+    </div>
+</div>
+<div class="terminalTable">
+    <table class="table table-strip table-hover">
+        <thead class="tableHeader">
+            <tr>
+                <th>Time</th>
+                <th>Terminal</th>
+                <th>Card Number</th>
+                <th>Type</th>
+                <th>State</th>
+                <th>Reference</th>
+                <th>Amount</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let transaction of transactions 
+            | location: filterLocation: 'locId'
+            | terminal: filterTerminal: 'therminalID'
+            | reference: filterReference: 'reference'
+            | cardnumber: filterCard: 'cardnumber'
+            | timeFilter: startTime: endTime: 'time'
+            | amountFilter: startAmt: endAmt: 'amount'">
+                <td>{{transaction.time |  date: 'yyyy-m-d h:mm'}}</td>
+                <td>{{transaction.terminal}}</td>
+                <td>{{transaction.cardnumber}}</td>
+                <td>{{transaction.type}}</td>
+                <td>{{transaction.status}}</td>
+                <td>{{transaction.reference}}</td>
+                <td>{{transaction.amount}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

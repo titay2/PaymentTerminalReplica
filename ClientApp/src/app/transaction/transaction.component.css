@@ -1,0 +1,44 @@
+h6{
+    color: rgb(7, 56, 134) !important;
+}
+.filter{
+    font-size: 1rem;
+    font-weight: 600;
+}
+.filterInputs {
+    display: inline-block;
+    margin: 0 25px 15px 0;
+    vertical-align: top;
+    position: relative;
+}
+.salesInput{
+    border-right: 1px solid #767676;
+    border-left: 1px solid #767676;
+    border-top: 1px solid #767676;
+    border-bottom: 8px solid #2F528A;
+    width: 200px;
+    padding-top: inherit;
+}
+.newInput {
+    width: 15%;
+    font-weight: bold;
+    background-color: white;
+    border: 1px solid;
+    font-size: 13px;
+    font-family: Arial;
+    float: left;
+}
+* {
+    margin: 0;
+}
+.spanLeft{
+    float: left;
+    color: #555;
+    text-align: center;
+    background-color: #eee;
+    border: 1px solid #ccc;
+    display: table-cell;
+    line-height: 1;
+    vertical-align: middle;
+    padding: 6px
+}
