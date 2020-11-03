@@ -1,12 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-settlment',
-  templateUrl: './settlment.component.html',
-  styleUrls: ['./settlment.component.css']
+  selector: 'app-settelment',
+  templateUrl: './settelment.component.html',
+  styleUrls: ['./settelment.component.css']
 })
-export class SettlmentComponent {
+export class SettelmentComponent implements OnInit {
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
   filterLocation = '';
   filterFeedback = '';
   fauxData = [

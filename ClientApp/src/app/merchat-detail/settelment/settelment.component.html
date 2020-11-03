@@ -1,6 +1,4 @@
 <div>
-    <h6><a routerLink="/Settlement">Settlment ></a></h6>
-    <br>
     <div class="filter">
         <div class="filterInputs">
             <label for="name">Sales Location
@@ -41,7 +39,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let Settlment of fauxData | filter: filterLocation : 'batch'">
+            <tr *ngFor="let Settlment of fauxData">
                 <td style="width: 32%;">{{Settlment.time}}</td>
                 <td>{{Settlment.content}}</td>
                 <td> <a [routerLink]="[Settlment.batch]"> {{Settlment.batch}} </a> </td>

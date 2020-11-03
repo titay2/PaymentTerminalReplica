@@ -50,27 +50,21 @@
 
     <div class="collapse navbar-collapse center" id="navbarSupportedContent">
       <ul class="nav justify-content-center" id="lowerNav">
-        <li class="nav-item" routerLinkActive="active">
-          <a class="nav-link textdark" routerLink="/Settlement" i18n>Settelment</a>
+        <li class="nav-item limit" routerLinkActive="active">
+          <a class="nav-link " routerLink="/Hardware" i18n>Hardware</a>
         </li>
-        <li class="nav-item" routerLinkActive="active">
-          <a class="nav-link text-dark" routerLink="/Transaction" i18n>Transaction</a>
+        <li class="nav-item limit" routerLinkActive="active">
+          <a class="nav-link" routerLink="/Orders" i18n>Orders</a>
         </li>
-        <li class="nav-item" routerLinkActive="active">
-          <a class="nav-link text-dark" routerLink="/Support" i18n>Support</a>
-        </li>
-        <li class="nav-item dropdown" routerLinkActive="active">
-          <a class="nav-link  dropdown-toggle text-dark" routerLink="/Profile" data-toggle="dropdown" i18n>
-            Profiles
+        <li class="nav-item dropdown " routerLinkActive="active">
+          <a class="nav-link  dropdown-toggle text-dark" data-toggle="dropdown" i18n>
+            Merchants
           </a>
-          <!-- <p class="nav-link  dropdown-toggle text-dark"  data-toggle="dropdown" i18n>
-            Profiles
-          </p> -->
           <ul class="dropdown-menu fade-up">
-            <li><a class="dropdown-item" routerLink="/Profile/Kauppiaat" i18n> Kauppiaat</a></li>
-            <li><a class="dropdown-item" routerLink="/Profile/Tilaukset" i18n> Tilaukset</a></li>
-            <li><a class="dropdown-item" routerLink="/Profile/Laitteet" i18n> Laitteet</a></li>
+            <li><a class="dropdown-item" routerLink="/Merchant" i18n> Merchant</a></li>
+            <li><a class="dropdown-item" routerLink="/Merchant/:id" i18n> Detail</a></li>
           </ul>
+
         </li>
       </ul>
     </div>

@@ -1,0 +1,54 @@
+
+.left {
+  float: left;
+  padding-top: 20px;
+}
+*, *:before, *:after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+.menu {
+  width: 152px;
+  background: #F0F0F0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  padding-top: 35px;
+}
+
+.menu ul li {
+  display: flex;
+  box-sizing: border-box;
+  margin: 0;
+  width: 100%;
+}
+.menu ul li :hover {
+  background-color:rgb(120, 168, 231);
+}
+.menu ul span {
+  border-radius: 16px;
+  font-size: 12pt;
+  font-weight: 500;
+  width: 100px;
+  height: 68px;
+  margin: 8px 0;
+  display: flex;
+  align-items: center;
+  z-index: 1;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+.active{
+  color:  rgb(7, 56, 134) !important;
+  background-color:rgb(120, 168, 231);
+}
+.dormant{
+  color: rgb(7, 56, 134);
+  background: white;
+}
+h6{
+  color: rgb(7, 56, 134)
+}
+

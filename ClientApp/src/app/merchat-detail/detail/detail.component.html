@@ -1,0 +1,123 @@
+<div class="form-container-box merchantInfo">
+    <div class="row">
+        <div class="col-12">
+            <h6 class="infoHeader">Merchant Information</h6>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-6">
+
+            <div class="form-group">
+                <h6 class="infoHeader">Company Name</h6>
+                <span>Semel OY</span>
+            </div>
+
+            <div class="form-group">
+                <h6 class="infoHeader">Business ID</h6>
+                <span>01138212</span>
+            </div>
+            <div class="form-group">
+                <h6 class="infoHeader">Phone Number</h6>
+                <span>+358443001166</span>
+            </div>
+
+        </div>
+        <div class="col-6">
+            <div class="form-group">
+                <h6 class="infoHeader">Street Address</h6>
+                <span>Valimotie 21</span>
+            </div>
+
+            <div class="form-group">
+                <h6 class="infoHeader">Postal Code</h6>
+                <span>01740</span>
+            </div>
+            <div class="form-group">
+                <h6 class="infoHeader">City</h6>
+                <span>Helsinki</span>
+            </div>
+            <div class="form-group">
+                <h6 class="infoHeader">Country</h6>
+                <span>Finland</span>
+            </div>
+
+        </div>
+    </div>
+</div>
+<br>
+<br>
+<div>
+    <h6 class="infoHeader">Sales Information</h6>
+    <div class="card ">
+        <div class="panel-group" [attr.id]="'accordion_' + i" *ngFor="let message of accordionData; let i = index;">
+            <div class="panel panel-default">
+                <div appBlueClick class="accordionButton panel-heading card-header cardBody collapseElement boxLine"
+                    data-toggle="collapse" [attr.data-parent]="'#accordion_' + i" [attr.href]="'#collapseOne_' + i">
+                    <p class="col-6 left">
+                        >{{ message.name }}
+                    </p>
+                    <p class="col-6 left">
+                        {{ message.StreetAddress }}
+                    </p>
+
+                </div>
+                <div [attr.id]="'collapseOne_' + i" class="panel-collapse collapse in">
+                    <div class="panel-body card-body">
+                        <div class="form-container-box merchantInfo">
+                            <div class="row">
+                                <div class="col-12">
+                                    <h6 class="infoHeader">Contact Information
+                                        <button>Edit</button>
+                                    </h6>
+
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-6">
+
+                                    <div class="form-group">
+                                        <h6 class="infoHeader">Company Name</h6>
+                                        <span>Semel OY</span>
+                                    </div>
+                                    <div class="form-group">
+                                        <h6 class="infoHeader">Business ID</h6>
+                                        <span>01138212</span>
+                                    </div>
+                                    <div class="form-group">
+                                        <h6 class="infoHeader">Phone Number</h6>
+                                        <span>+358443001166</span>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <h6 class="infoHeader">Street Address</h6>
+                                        <span>Valimotie 21</span>
+                                    </div>
+                                    <div class="form-group">
+                                        <h6 class="infoHeader">Postal Code</h6>
+                                        <span>01740</span>
+                                    </div>
+                                    <div class="form-group">
+                                        <h6 class="infoHeader">City</h6>
+                                        <span>Helsinki</span>
+                                    </div>
+                                    <div class="form-group">
+                                        <h6 class="infoHeader">Country</h6>
+                                        <span>Finland</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="settlmentInfp">
+                            <h6 class="infoHeader">Settlment Contract</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <button class="btn editButton">+Add Sales Information</button>
+</div>

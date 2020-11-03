@@ -10,3 +10,8 @@ body {
   background-color: #2F528A;
   color: aliceblue;
 }
+.editButton{
+  float: right;
+  background-color: #2F528A;
+  color: aliceblue;
+}

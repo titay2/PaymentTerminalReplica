@@ -25,7 +25,7 @@ a.navbar-brand {
 .itemList {
   float: right;
   position: relative;
-  font-weight: 200px;
+  font-weight: 200;
   margin-top: 10px;
   font-size: 1rem;
 }
@@ -77,22 +77,22 @@ hr.new4 {
   width: 82%;
   background-color: #2F528A;
 }
-nav ul li ,
-nav ul li:after,
-nav ul li:before {
+ nav ul li.limit ,
+nav ul li.limit:after,
+nav ul li.limit:before {
   transition: all .5s;
-}
-nav ul li a:hover {
+}  
+nav ul li.limit a:hover {
   color: #555;
 }
 
-nav.circle ul li{
+nav.circle ul li.limit{
   position: relative;
   overflow: hidden;
   z-index: 1;
   
 }
-nav.circle ul li:after {
+nav.circle ul li.limit:after {
   display: block;
   position: absolute;
   margin: 0;
@@ -108,7 +108,7 @@ nav.circle ul li:after {
   background: transparent;
 }
 
-nav.circle ul li:hover:after {
+nav.circle ul li.limit:hover:after {
   -webkit-animation: circle 1.5s ease-in forwards;
 }
 
@@ -139,17 +139,7 @@ nav.circle ul li:hover:after {
     border-radius: 0;
   }
 }
-@media all and (min-width: 992px) {
-	.navbar .nav-item .dropdown-menu{  display:block; opacity: 0;  visibility: hidden; transition:.3s; margin-top:0;  }
-	.navbar .nav-item:hover .nav-link{ color: black;  }
-	.navbar .dropdown-menu.fade-down{ top:80%; transform: rotateX(-75deg); transform-origin: 0% 0%; }
-	.navbar .dropdown-menu.fade-up{ top:180%;  }
-	.navbar .nav-item:hover .dropdown-menu{ transition: .3s; opacity:1; visibility:visible; top:100%; transform: rotateX(0deg); }
-}	
 
-.dropdown-toggle::after {
-  display: none;
-}
 .itemList[_ngcontent-unl-c52] {
   margin-right: 55px;
 }

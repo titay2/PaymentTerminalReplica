@@ -5,18 +5,11 @@ import { AppComponent } from './app.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { MsalModule, MsalInterceptor } from '@azure/msal-angular';
 import { HTTP_INTERCEPTORS } from "@angular/common/http";
-import { SettlmentComponent } from './settlment/settlment.component';
-import { TransactionComponent } from './transaction/transaction.component';
-import { ProfileComponent } from './profile/profile.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { KauppiaatComponent } from './profile/kauppiaat/kauppiaat.component';
-import { TilauksetComponent } from './profile/tilaukset/tilaukset.component';
-import { LaitteetComponent } from './profile/laitteet/laitteet.component';
-import { FilterPipe } from './filter.pipe';
-import { BatchComponent } from './settlment/batch/batch.component';
+// import { FilterPipe } from './filter.pipe';
 import { HomeComponent } from './home/home.component';
 import { LocationPipe } from './filterPipes/location.pipe';
 import { TerminalPipe } from './filterPipes/terminal.pipe';
@@ -24,19 +17,21 @@ import { CardNumberPipe } from './filterPipes/card-number.pipe';
 import { ReferencePipe } from './filterPipes/reference.pipe';
 import { TimeFilterPipe } from './filterPipes/time-filter.pipe';
 import { AmountFilterPipe } from './filterPipes/amount-filter.pipe';
+import { MerchantComponent } from './merchant/merchant.component';
+import { OrdersComponent } from './orders/orders.component';
+import { HardwareComponent } from './hardware/hardware.component';
+import { MerchatDetailComponent } from './merchat-detail/merchat-detail.component';
+import { DetailComponent } from './merchat-detail/detail/detail.component';
+import { TerminalComponent } from './merchat-detail/terminal/terminal.component';
+import { TransactionComponent } from './merchat-detail/transaction/transaction.component';
+import { SettelmentComponent } from './merchat-detail/settelment/settelment.component';
+import { BlueClickDirective } from './merchat-detail/detail/blue-click.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavBarComponent,
-    SettlmentComponent,
-    TransactionComponent,
-    ProfileComponent,
-    KauppiaatComponent,
-    TilauksetComponent,
-    LaitteetComponent,
-    FilterPipe,
-    BatchComponent,
+    // FilterPipe,
     HomeComponent,
     LocationPipe,
     TerminalPipe,
@@ -44,6 +39,15 @@ import { AmountFilterPipe } from './filterPipes/amount-filter.pipe';
     ReferencePipe,
     TimeFilterPipe,
     AmountFilterPipe,
+    MerchantComponent,
+    OrdersComponent,
+    HardwareComponent,
+    MerchatDetailComponent,
+    DetailComponent,
+    TerminalComponent,
+    TransactionComponent,
+    SettelmentComponent,
+    BlueClickDirective
   ],
   imports: [
     BrowserModule,

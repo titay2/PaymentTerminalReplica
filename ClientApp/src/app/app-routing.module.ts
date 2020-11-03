@@ -1,46 +1,58 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { SettlmentComponent } from './settlment/settlment.component';
-import { TransactionComponent } from './transaction/transaction.component';
-import { ProfileComponent } from './profile/profile.component';
-import { AuthGuard } from './authGuard';
-import { KauppiaatComponent } from './profile/kauppiaat/kauppiaat.component';
-import { LaitteetComponent } from './profile/laitteet/laitteet.component';
-import { TilauksetComponent } from './profile/tilaukset/tilaukset.component';
-import { BatchComponent } from './settlment/batch/batch.component';
-
-
+// import { AuthGuard } from './authGuard';
+import { MerchantComponent } from './merchant/merchant.component';
+import { OrdersComponent } from './orders/orders.component';
+import { HardwareComponent } from './hardware/hardware.component';
+import { MerchatDetailComponent } from './merchat-detail/merchat-detail.component';
+import { DetailComponent } from './merchat-detail/detail/detail.component';
+import { TerminalComponent } from './merchat-detail/terminal/terminal.component';
+import { SettelmentComponent } from './merchat-detail/settelment/settelment.component';
+import { TransactionComponent } from './merchat-detail/transaction/transaction.component';
+;
 
 const routes: Routes = [
   {
-    path: '', redirectTo: '/Transaction', pathMatch: 'full',
+    path: '',
+    redirectTo: '/Orders',
+    pathMatch: 'full',
   },
+  // {
+  //   path: 'Merchant',
+  //   //canActivate: [AuthGuard],
+  //   component: MerchantComponent
+  // }, 
   {
-    path: 'Settlement',
+    path: 'Orders',
     //canActivate: [AuthGuard],
-    component: SettlmentComponent,
-  },
-  {
-    path: 'Settlement/:id',
-    canActivate: [AuthGuard],
-    component: BatchComponent,
-  },
-  {
-    path: 'Transaction',
+    component: OrdersComponent
+  }, {
+    path: 'Hardware',
     //canActivate: [AuthGuard],
-    component: TransactionComponent
+    component: HardwareComponent
   },
   {
-    path: 'Profile',
+    path: 'Merchant',
     //canActivate: [AuthGuard],
-    component: ProfileComponent,
-    children: [
-      { path: 'Kauppiaat', component: KauppiaatComponent },
-      { path: 'Laitteet', component: LaitteetComponent },
-      { path: 'Tilaukset', component: TilauksetComponent, }
+    component: MerchantComponent,
 
+  }
+  , {
+    path: 'Merchant/:id',
+    //canActivate: [AuthGuard],
+    component: MerchatDetailComponent,
+    children: [
+      { path: '', component: DetailComponent },
+      { path: 'Terminal', component: TerminalComponent },
+      { path: 'Settelment', component: SettelmentComponent },
+      { path: 'Transaction', component: TransactionComponent },
     ]
   },
+  //  {
+  //   path: 'Merchant/Terminal',
+  //   //canActivate: [AuthGuard],
+  //   component: TerminalComponent
+  //},
 ];
 
 @NgModule({

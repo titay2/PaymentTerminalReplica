@@ -1,0 +1,31 @@
+.form-container-box{
+    padding: 20px 40px;
+    background-color: #fafafa;
+    box-shadow: 0 0 10px 0 rgba(0,0,0,.1);
+    border: 1px solid rgb(7, 56, 134);
+    border-radius: 4px;
+}
+.merchantInfo span{
+    color: rgb(7, 56, 134);
+    font-weight: 400;
+}
+.accordionButton{
+    /* background-color:  */
+    color: rgb(7, 56, 134);
+   
+}
+.expandElenemt{
+     background-color:  rgb(7, 56, 134);
+     color: white;
+}
+
+.boxLine{
+    border: 1px solid rgb(7, 56, 134);
+    cursor: pointer;
+    padding-bottom: 50px;
+    margin-bottom: 14px;
+    font-weight: 600;
+}
+.left{
+    float: left;
+}

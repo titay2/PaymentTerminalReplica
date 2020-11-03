@@ -1,0 +1,16 @@
+<div class="col-2 left">
+  <div class="menu">
+    <ul>
+      <li (click)="listClick(item)" *ngFor="let item of navList">
+        <span [ngClass]="{'active': selectedItem == item, 'dormant': selectedItem != item}">
+          <i style="padding-left:9px;"> {{item}}</i>
+        </span>
+      </li>
+    </ul>
+  </div>
+</div>
+<div class="col-10 left">
+  <h6>Merchant id > {{id}}</h6>
+  <br>
+  <router-outlet></router-outlet>
+</div>
