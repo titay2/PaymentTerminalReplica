@@ -1,32 +1,33 @@
+<br>
+<div *ngIf="!id" class="alert alert-warning" role="alert">
+    select a Merchant
+</div>
+<label class="form-group">Search
+    <input type="text" class="form-control">
+</label>
 
-    <h6>Merchants</h6>
-    <br>
-    <label class="form-group">Search
-        <input type="text" class="form-control">
-    </label>
-
-    <h6>Merchants</h6>
-    <table class="table table-strip table-hover shadow p-3 mb-5 bg-white rounded">
-        <thead class="tableHeader">
-            <tr>
-                <th>Merchant</th>
-                <th>Contact Info</th>
-                <th>Contact Person</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let merchant of merchants">
-                <td><a [routerLink]="[merchant.businessId]">{{merchant.companyName}}</a></td>
-                <td>{{merchant.StreetAddress}},
-                    {{merchant.post}},
-                    {{merchant.city}},
-                    {{merchant.phoneNo}},
-                    {{merchant.businessId}}</td>
-                <td>{{merchant.contactPresom}},
-                    {{merchant.cpemail}},
-                    {{merchant.phoneNo}}
-                </td>
-            </tr>
-        </tbody>
-    </table>
-
+<h6>Merchants</h6>
+<table class="table table-strip table-hover shadow p-3 mb-5 bg-white rounded">
+    <thead class="tableHeader">
+        <tr>
+            <th>Merchant</th>
+            <th>Contact Info</th>
+            <th>Contact Person</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let merchant of merchants">
+            <td><a (click)="newRoute(merchant.businessId)"
+                    [routerLink]="[merchant.businessId]">{{merchant.companyName}}</a></td>
+            <td>{{merchant.StreetAddress}},
+                {{merchant.post}},
+                {{merchant.city}},
+                {{merchant.phoneNo}},
+                {{merchant.businessId}}</td>
+            <td>{{merchant.contactPresom}},
+                {{merchant.cpemail}},
+                {{merchant.phoneNo}}
+            </td>
+        </tr>
+    </tbody>
+</table>

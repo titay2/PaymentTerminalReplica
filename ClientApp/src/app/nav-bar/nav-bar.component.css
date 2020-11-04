@@ -43,7 +43,12 @@ ul.nav li.active {
 li.logout {
   margin: 0px -85px 0px 62px;
 }
-
+/* .dropdown:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown > .dropdown-toggle:active {
+  pointer-events: none;
+} */
 html {
   font-size: 14px;
 }

@@ -7,21 +7,21 @@ import { ActivatedRoute, Router, Params } from '@angular/router';
   styleUrls: ['./merchat-detail.component.css']
 })
 export class MerchatDetailComponent implements OnInit {
-  id: number = +localStorage.getItem("selectedMerchant");
+  id = localStorage.getItem("selectedMerchant");
   navList = ['Detail', 'Terminal', 'Settelment', 'Transaction'];
   selectedItem = 'Detail';
 
   constructor(private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
-    this.route.params.subscribe((params: Params) => {
-      if (Number(+params['id'])) {
-        localStorage.setItem("selectedMerchant", params['id']);
-      }
-      else {
-        this.id = +localStorage.getItem("selectedMerchant");
-      }
-    })
+    const str = this.router.url;
+    const n = str.lastIndexOf('/');
+    if (str.substring(n + 1) !== 'Detail') {
+      this.selectedItem = 'Detail';
+    } else {
+      this.selectedItem = str.substring(n + 1);
+    }
+
   }
 
   listClick(newValue: string) {

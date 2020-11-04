@@ -1,5 +1,5 @@
 <div class="col-2 left">
-  <div class="menu">
+  <div class="menu" *ngIf="id">
     <ul>
       <li (click)="listClick(item)" *ngFor="let item of navList">
         <span [ngClass]="{'active': selectedItem == item, 'dormant': selectedItem != item}">

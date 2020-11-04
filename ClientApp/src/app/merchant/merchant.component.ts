@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./merchant.component.css']
 })
 export class MerchantComponent implements OnInit {
-
+  id = localStorage.getItem("selectedMerchant")
   constructor() { }
 
   ngOnInit(): void {
@@ -36,4 +36,8 @@ export class MerchantComponent implements OnInit {
 
     }
   ]
+
+  newRoute(id) {
+    localStorage.setItem("selectedMerchant", id);
+  }
 }

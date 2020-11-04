@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-detail',
@@ -6,10 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./detail.component.css']
 })
 export class DetailComponent implements OnInit {
+  id = localStorage.getItem("selectedMerchant");
+  constructor(private router: Router, private route: ActivatedRoute) { }
 
-  constructor() { }
-
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    if (!this.id) {
+      this.router.navigate(['/Merchant']);
+    }
+  }
   merchants = [
     {
       companyName: "Semel OY",
