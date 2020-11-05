@@ -10,36 +10,36 @@
 
             <div class="form-group">
                 <h6 class="infoHeader">Company Name</h6>
-                <span>Semel OY</span>
+                <span>{{merchants.companyName}}</span>
             </div>
 
             <div class="form-group">
                 <h6 class="infoHeader">Business ID</h6>
-                <span>01138212</span>
+                <span>{{merchants.businessId}}</span>
             </div>
             <div class="form-group">
                 <h6 class="infoHeader">Phone Number</h6>
-                <span>+358443001166</span>
+                <span>{{merchants.phoneNo}}</span>
             </div>
 
         </div>
         <div class="col-6">
             <div class="form-group">
                 <h6 class="infoHeader">Street Address</h6>
-                <span>Valimotie 21</span>
+                <span>{{merchants.companyName}}</span>
             </div>
 
             <div class="form-group">
                 <h6 class="infoHeader">Postal Code</h6>
-                <span>01740</span>
+                <span>{{merchants.companyName}}</span>
             </div>
             <div class="form-group">
                 <h6 class="infoHeader">City</h6>
-                <span>Helsinki</span>
+                <span>{{merchants.companyName}}</span>
             </div>
             <div class="form-group">
                 <h6 class="infoHeader">Country</h6>
-                <span>Finland</span>
+                <span>{{merchants.companyName}}</span>
             </div>
 
         </div>
@@ -48,7 +48,7 @@
 <br>
 <br>
 <div>
-    <h6 class="infoHeader">Sales Information</h6>
+    <h6 class="infoHeader">Sales Locations</h6>
     <div class="card ">
         <div class="panel-group" [attr.id]="'accordion_' + i" *ngFor="let message of accordionData; let i = index;">
             <div class="panel panel-default">
@@ -68,7 +68,8 @@
                             <div class="row">
                                 <div class="col-12">
                                     <h6 class="infoHeader">Contact Information
-                                        <button>Edit</button>
+                                        <button class="btn btn-light btn-sm edit" (click)="onEditLocation(merchants)"
+                                            data-toggle="modal" data-target="#locationModal">Edit</button>
                                     </h6>
 
                                 </div>
@@ -112,6 +113,51 @@
                         </div>
                         <div class="settlmentInfp">
                             <h6 class="infoHeader">Settlment Contract</h6>
+                            <table class="table table-hover table-strip shadow p-3 mb-5 bg-white rounded">
+                                <thead class="tableHeader">
+                                    <tr>
+                                        <th>Settelment Contract type</th>
+                                        <th>Merchant Number</th>
+                                        <th>Merchant Category Code (MCC)</th>
+                                        <th></th>
+                                    </tr>
+
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let contract of merchants.salesContract">
+                                        <td>{{contract.type}}</td>
+                                        <td>{{contract.number}}</td>
+                                        <td>{{contract.code}}-{{contract.description}}</td>
+                                        <td><button class="btn btn-light btn-sm edit" (click)="onEditContract(contract)"
+                                                data-toggle="modal" data-target="#contractModal">Edit</button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <button class="btn editButton" (click)="onNewContract()" data-toggle="modal"
+                                data-target="#contractModal"> + Add Settelment Contract</button>
+                        </div>
+                        <br>
+                        <br>
+                        <div class="terminalInfo">
+                            <h6 class="infoHeader">Terminals</h6>
+                            <table class="table table-hover table-strip">
+                                <thead class="tableHeader">
+                                    <tr>
+                                        <th>Type </th>
+                                        <th>Name</th>
+                                        <th>Term</th>
+                                        <th>Hardware</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor=" let terminal of merchants.terminals">
+                                        <td>{{terminal.type}}</td>
+                                        <td>{{terminal.name}}</td>
+                                        <td>{{terminal.orderTerm}}</td>
+                                        <td>{{terminal.hardwareId}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
@@ -119,5 +165,117 @@
         </div>
 
     </div>
-    <button class="btn editButton">+Add Sales Information</button>
+    <button class="btn editButton" (click)="onAddNewLocation()" data-toggle="modal" data-target="#locationModal">+Add
+        Sales Location</button>
+</div>
+<!-- modal Settelment contracr form -->
+
+<div class="modal fade" id="contractModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editorModalLabel">{{editorTitleContract}}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="settlmentForm" *ngIf="this.settlmentForm" (ngSubmit)="onSubmitContract()">
+                    <div class="row editorModal">
+                        <label for="type" class="col-sm-4 col-form-label">Settlment Contract Type:</label>
+                        <div class="col-sm-8">
+                            <input id="type" type="text" class="form-control" formControlName="contractType">
+                        </div>
+
+                        <label for="cname" class="col-sm-4 col-form-label">Settlment Contract Number:</label>
+                        <div class="col-sm-8">
+                            <input id="cname" type="text" class="form-control" formControlName="contractNumber">
+                        </div>
+                        <label for="mcc" class="col-sm-4 col-form-label">Merchant Catagory Code (MCC):</label>
+                        <div class="col-sm-8 row" style="padding-left: 4%;">
+                            <input id="mcc" type="number" class="form-control" formControlName="merchantCode"
+                                style="width: 25%;">
+                            <p *ngIf="editMode"> Automobil Parking Lot And Garage</p>
+                        </div>
+                        <label class="col-sm-4 col-form-label" *ngIf="!editMode">Valid From:</label>
+                        <div class="col-sm-8" *ngIf="!editMode">
+                            <label>
+                                <input type="radio" value="Immidietly" class="inputSetup" formControlName="option">
+                                <span i18n>Immidietly</span>
+                            </label>
+                            <br>
+                            <label>
+                                <input type="radio" value="Later" class="inputSetup" formControlName="option">
+                                <span i18n>Later</span>
+                            </label>
+                        </div>
+                        <label for="startTime" class="col-sm-4 col-form-label" *ngIf="editMode">Start Time:</label>
+                        <div class="col-sm-8" *ngIf="editMode">
+                            <input id="startTime" type="datetime-local" class="form-control"
+                                formControlName="startTime">
+                        </div>
+                        <br>
+                        <br>
+                        <label for="endTime" class="col-sm-4 col-form-label" *ngIf="editMode">End Time:</label>
+                        <div class="col-sm-8" *ngIf="editMode">
+                            <input id="endTime" type="datetime-local" class="form-control" formControlName="endTime">
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn-secondary" data-dismiss="modal" i18n>Close</button>
+                        <button class="editButton" type="submit" i18n>Save changes</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- modal location form -->
+<div class="modal fade" id="locationModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editorModalLabel">{{editorTitleLocation}}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="locationForm" *ngIf="this.locationForm" (ngSubmit)="onSubmit()">
+                    <div class="row editorModal">
+                        <label for="name" class="col-sm-4 col-form-label">Locaion Name:</label>
+                        <div class="col-sm-8">
+                            <input id="name" type="text" class="form-control" formControlName="locationName">
+                        </div>
+                        <label for="phone" class="col-sm-4 col-form-label">Phone Number:</label>
+                        <div class="col-sm-8">
+                            <input id="phone" type="tel" class=" form-control" placeholder="+358"
+                                formControlName="phoneNumber">
+                        </div>
+                        <label for="post" class="col-sm-4 col-form-label">Post Code:</label>
+                        <div class="col-sm-8">
+                            <input id="post" type="text" pattern="[0-9]*" class="form-control" formControlName="post">
+                        </div>
+                        <label for="city" class="col-sm-4 col-form-label">City:</label>
+                        <div class="col-sm-8">
+                            <input id="city" type="text" class="form-control" formControlName="city">
+                        </div>
+                        <label for="country" class="col-sm-4 col-form-label">Country:</label>
+                        <div class="col-sm-8">
+                            <input id="country" type="text" class="form-control" formControlName="country">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn-secondary" data-dismiss="modal" i18n>Close</button>
+                            <button class="editButton" type="submit" i18n>Save changes</button>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+
+        </div>
+    </div>
 </div>
