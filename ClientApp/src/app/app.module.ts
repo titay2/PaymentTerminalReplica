@@ -26,6 +26,7 @@ import { TerminalComponent } from './merchat-detail/terminal/terminal.component'
 import { TransactionComponent } from './merchat-detail/transaction/transaction.component';
 import { SettelmentComponent } from './merchat-detail/settelment/settelment.component';
 import { BlueClickDirective } from './merchat-detail/detail/blue-click.directive';
+import { NewOrderComponent } from './orders/new-order/new-order.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { BlueClickDirective } from './merchat-detail/detail/blue-click.directive
     TerminalComponent,
     TransactionComponent,
     SettelmentComponent,
-    BlueClickDirective
+    BlueClickDirective,
+    NewOrderComponent
   ],
   imports: [
     BrowserModule,

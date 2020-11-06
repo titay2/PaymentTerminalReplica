@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-orders',
@@ -7,9 +9,34 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OrdersComponent implements OnInit {
 
-  constructor() { }
+  orderForm: FormGroup;
+  showhideold = true;
+  fauxData = [
+    {
+      Merchant: 'test',
+      Order: 'order',
+      User: 'test',
+      Modified: 'now'
+    }, {
+      Merchant: 'test',
+      Order: 'order',
+      User: 'test',
+      Modified: 'now'
+    }, {
+      Merchant: 'test',
+      Order: 'order',
+      User: 'test',
+      Modified: 'now'
+    }
+  ];
+  constructor(private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+
+  }
+
+  NewOrder() {
+    this.router.navigate(['../', 'New'], { relativeTo: this.route });
   }
 
 }

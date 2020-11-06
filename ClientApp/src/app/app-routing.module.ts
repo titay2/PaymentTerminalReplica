@@ -9,23 +9,20 @@ import { DetailComponent } from './merchat-detail/detail/detail.component';
 import { TerminalComponent } from './merchat-detail/terminal/terminal.component';
 import { SettelmentComponent } from './merchat-detail/settelment/settelment.component';
 import { TransactionComponent } from './merchat-detail/transaction/transaction.component';
+import { NewOrderComponent } from './orders/new-order/new-order.component';
 ;
 
 const routes: Routes = [
-  {
-    path: '',
-    redirectTo: '/Orders',
-    pathMatch: 'full',
-  },
-  // {
-  //   path: 'Merchant',
-  //   //canActivate: [AuthGuard],
-  //   component: MerchantComponent
-  // }, 
+  { path: '', redirectTo: '/Merchant', pathMatch: 'full' },
   {
     path: 'Orders',
-    //canActivate: [AuthGuard],
+    //canActivate: [AuthGuard], 
     component: OrdersComponent
+  },
+  {
+    path: 'Orders/New',
+    //canActivate: [AuthGuard],
+    component: NewOrderComponent
   }, {
     path: 'Hardware',
     //canActivate: [AuthGuard],
@@ -36,6 +33,10 @@ const routes: Routes = [
     //canActivate: [AuthGuard],
     component: MerchantComponent,
 
+  }, {
+    path: 'Terminals',
+    //canActivate: [AuthGuard],
+    component: MerchantComponent,
   }
   , {
     path: 'Merchant/:id',
@@ -47,12 +48,7 @@ const routes: Routes = [
       { path: 'Settelment', component: SettelmentComponent },
       { path: 'Transaction', component: TransactionComponent },
     ]
-  },
-  //  {
-  //   path: 'Merchant/Terminal',
-  //   //canActivate: [AuthGuard],
-  //   component: TerminalComponent
-  //},
+  }
 ];
 
 @NgModule({
